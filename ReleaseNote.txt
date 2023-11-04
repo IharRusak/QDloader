@@ -1,0 +1,156 @@
+Release Notes
+
+[v1.0.11]
+Date:   2023/09/05
+enhancement:
+  1. Optimize EC200A upgrade code
+fix:
+
+[v1.0.10]
+Date:   2023/08/28
+enhancement:
+  1. Optimize -s /dev/ttyUSBAT specified module upgrade
+  2. Added support for EC300RLAAA upgrade
+  3. Fix the issue with upgrading udx710 and nv size host byte order conversion in the large end system
+  4. Removing the issue of specifying diag interface values in emergency download mode for the State Grid module
+  5. Optimize the FBFDownloader section of the code
+fix:
+
+[v1.0.9]
+Date:   2023/06/14
+enhancement:
+  1. Added support for upgrading the Jibei and Energy Controller Module EC200DCNBA (3763 3c93; 3c93 ffff)
+  2. Optimize udx710 big and little endian system upgrade code
+  3. Module upgrade compatible with EC200A big and little endian system
+  4. Added support for -s /sys/bus/usb/device/x-x to specify one or more USB 3.0 module upgrades
+fix:
+
+[v1.0.8]
+Date:   2023/04/03
+enhancement:
+  1. Compatible with module upgrades under EC200N big and little end systems
+  2. The udx710 platform never handles the prodnv and phasecheck partitions, which are skipped directly in the code
+  3. New support for MTK platform RG620T upgrade, the upgrade method is consistent with MTK platform RM500K
+  4. Added support for the asr1803e platform FBF_h. bin is upgraded in three segments and discontinuous situations
+  5. Optimize the short circuit boot upgrade of the ASR module
+  6. Compatible with module upgrades on both big and little end systems of udx710
+fix:
+
+[v1.0.7]
+Date:   2022/12/15
+enhancement:
+  1. Optimized 8850 and 8310 partition selection logic, eliminating the need to manually add and skip some partitions
+  2. Added support for asr platform (1803S) single DDR (FBF_h.bin regardless of splitting) and multiple DDR (0xXXXXXXXX FBF_h.bin regardless of splitting) upgrade
+  3. Optimize code and release desc_p (previously malloc was not free)
+fix:
+
+[v1.0.6]
+Date:   2022/10/18
+enhancement:
+  1. The asr upgrade mechanism changes to support multiple DDR upgrades
+  2. Only for ingenico customers EG912YEMAB Misburning
+  3. Add the -x parameter to specify the backup nv path. When not in use, it is stored in the /tmp directory by default
+  4. Optimize the specified mechanism for multi module upgrade 
+fix:
+
+[v1.0.5]
+Date:   2022/07/15
+enhancement:
+  1. Optimize the size modification of the interval with EG070UEUAB NV ID 218, and solve the bug of upgrade failure
+  2. New support EC600U Python version upgrade
+  3. Optimized EraseSPL is not erased. When writing NV first, power is off, resulting in infinite restart of the module bug
+  4. Unisoc 8910 platform no longer checks Unknow FileID
+  5. Only for the uis8310 platform, the DTR and RTS of the USB serial port will be raised before sending the download command
+fix:
+
+[v1.0.4]
+Date:   2022/05/16
+enhancement:
+  1. EG912Y series modules are protected against stupidity, R01 and R03 cannot be burned together
+  2. Add -g parameter to support RG200U and EC200A upgrade of State Grid
+  3. Optimize the problem of EC200D-CN serial number loss
+  4. Compatible with unisoc EC800G-CNLD module upgrade
+fix:
+
+[v1.0.3]
+Date:   2022/03/15
+enhancement:
+  1. New support for unisoc EC200D-CN upgrade
+  2. New support for unisoc EC800G-CN upgrade
+  3. New support for mtk RM500K upgrade
+  4. New support for mtk RG500L upgrade
+  5. Mandatory backup of IEMI2 for RM500U/RG500U
+  6. Fix the problem that EC200N Python cannot be restarted after successful upgrade
+fix:
+
+[v1.0.2]
+Date:   2021/12/29
+enhancement:
+  1. Added EG060V-EA upgrade support
+  2. Added UC200AGL, UG89TA upgrade support
+  3. Added support for QDloader to capture usbmon data
+  4. Troubleshoot the problem that the EC200A-CN upgrade fails due to power interruption
+  5. Add -e to determine whether to erase EC200U-CN
+fix:
+
+[v1.0.1]
+Date:   2021/9/28
+enhancement:
+  1. Added EG912Y-EM upgrade support
+  2. Added EC200A upgrade support
+  3. Added EC200S upgrade support for goke
+  4. Added state network RM500U-CN upgrade support
+fix:
+
+[v0.0.9]
+Date:   2021/8/19
+enhancement:
+  1. Optimized some platform string self-copy bug
+  2. Optimized error caused by the download port switching when opening the device sign
+fix:
+  1. EC200T: increasing platform compatibility
+
+[v0.0.8]
+Date:   2021/6/11
+enhancement:
+  1. 增加对EC200T冀北和能源控制器项目
+  2. Added EC600N-CN module restart function after successful upgrade
+  3. Added support for new EC200U packages (added ERASE_BOOT recognition)
+  4. Added -s to specify at port for the module to be upgraded
+fix:
+  1. rg500U & EC200U: some upgrade fail
+
+[v0.0.7]
+Date:   2021/5/10
+enhancement:
+fix:
+  1. rg500U: IMEI and SN lost, EC200U: IMEI lost
+
+
+[v0.0.6]
+Date:   2021/4/21
+enhancement:
+fix:
+  1. rg500U: fix merge nv error. fix by neil, less copy last 4 bytes
+
+[v0.0.5]
+Date:   2021/4/15
+enhancement:
+fix:
+  1. rg500U: fix merge nv error. fix by neil, when old nv file's size < new nv file's size, we should use new nv file's size
+
+	 
+[v0.0.4]
+Date:   2021/4/6
+enhancement:
+  1. send 'ATI' to show old FW version
+fix:
+  1. ec200s: fail when origin FW do not support firmwar.bin
+  2. ec200t: show successful even when usb disconnect during upgrade process.
+
+[v0.0.3]
+Date:   2021/4/1
+enhancement:
+  1. First Release Version of QDloder Tool.
+     support UDX710(RG500U)/UIS8910DM(EC200U)/ASR1802S(EC200T)/ASR1601(EC200S)
+	 
